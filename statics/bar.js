@@ -1,67 +1,77 @@
-d3.json("merged_df.json").then(function(data) {
+// tryin to create a bar chart showing the number of national parks per state.
+// The x-axis will show the number of parks, and the y-axis will show the state names
 
-  // define dimensions and margins for the chart
-  var margin = {top: 30, right: 30, bottom: 50, left: 60},
-      width = 500 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
+// Load the data
+d3.json('merged_df.json').then(function(data){
+    console.log(data);
 
-  // create a new SVG element for the chart and set its dimensions
-  var svg = d3.select("#bar")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    // Create a dictionary to store the count of parks per state
+    var stateCount = {};
 
-  // define the x and y scales for the chart
-  var xScale = d3.scaleBand()
-    .domain(data.map(function(d) { return d.park_name; }))
-    .range([0, width])
-    .padding(0.1);
+    // Loop through the data and count the number of parks per state
+    for (var i = 0; i < data.length; i++) {
+        var state = data[i]['states'];
+        if (stateCount[state]) {
+            stateCount[state] += 1;
+        } else {
+            stateCount[state] = 1;
+        }
+    }
 
-  var yScale = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) { return d.num_reviews; })])
-    .range([height, 0]);
+    console.log(stateCount);
 
-  // create the x and y axis for the chart
-  var xAxis = d3.axisBottom(xScale);
-  var yAxis = d3.axisLeft(yScale);
-
-  svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis)
-    .selectAll("text")
-      .attr("transform", "rotate(-45)")
-      .style("text-anchor", "end");
-
-  svg.append("g")
-    .attr("class", "y axis")
-    .call(yAxis);
-
-  // create the bars for the chart
-  var bars = svg.selectAll(".bar")
-    .data(data)
-    .enter()
-    .append("rect")
-    .attr("class", "bar")
-    .attr("x", function(d) { return xScale(d.park_name); })
-    .attr("y", function(d) { return yScale(d.num_reviews); })
-    .attr("width", xScale.bandwidth())
-    .attr("height", function(d) { return height - yScale(d.num_reviews); });
-
-  // add a tooltip to the bars
-  bars.append("title")
-    .text(function(d) { return d.park_name + ": " + d.num_reviews + " reviews"; });
-
-  // add interactivity to the bars
-  bars.on("mouseover", function() {
-      d3.select(this).style("fill", "orange");
-    })
-    .on("mouseout", function() {
-      d3.select(this).style("fill", "#69b3a2");
+    // Convert the dictionary to an array of objects for Plotly bar chart
+    var stateArr = Object.keys(stateCount).map(function(key) {
+        return {
+            'state': key,
+            'count': stateCount[key]
+        };
     });
 
-}).catch(function(error) {
-  console.log(error);
+    console.log(stateArr);
+
+    // Sort the array in descending order of count
+    stateArr.sort(function(a, b) {
+        return b.count - a.count;
+    });
+
+    console.log(stateArr);
+
+    // Extract the state names and count values into separate arrays
+    var stateNames = stateArr.map(function(obj) {
+        return obj.state;
+    });
+
+    var parkCounts = stateArr.map(function(obj) {
+        return obj.count;
+    });
+
+    console.log(stateNames);
+    console.log(parkCounts);
+
+    // Create a Plotly bar chart
+    var trace = {
+        x: parkCounts,
+        y: stateNames,
+        type: 'bar',
+        orientation: 'h'
+    };
+
+    var data = [trace];
+
+    var layout = {
+        title: 'Number of National Parks per State',
+        xaxis: {
+            title: 'Number of Parks'
+        },
+        yaxis: {
+            title: 'State'
+        }
+    };
+
+    Plotly.newPlot('bar', data, layout);
+
+}) 
+.catch(function(error) {
+    console.log(error);
 });
