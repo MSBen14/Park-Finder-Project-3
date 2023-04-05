@@ -14,8 +14,12 @@
 }
 
 body {
-  background-color: rgb(74, 143, 89);
-} 
+  background-image: url("https://images.news18.com/ibnlive/uploads/2016/06/AorakiMaps-tolkein.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 
 .jumbotron {
   position: absolute;
@@ -41,3 +45,19 @@ body {
 .panel {
   width: 400px;
 } 
+
+#map {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  background-color: white;
+  padding: 10px;
+  border: 5px solid #ddd;
+  font-size: 9.5px;
+}
