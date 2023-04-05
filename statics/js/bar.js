@@ -2,15 +2,30 @@
 // The x-axis will show the number of parks, and the y-axis will show the state names
 
 // Load the data
-d3.json('merged_df.json').then(function(data){
+d3.csv('merged_df.csv').then(function(data){
     console.log(data);
 
     // Create a dictionary to store the count of parks per state
     var stateCount = {};
 
     // Loop through the data and count the number of parks per state
-    for (var i = 0; i < data.length; i++) {
-        var state = data[i]['states'];
+    //get only one of each park in dropdown
+    let parkStates = [];
+    let parkNames = [];
+    for (let i = 0; i < data.length; i++) {
+        let currentPark = data[i];
+        let currentParkName = currentPark['fullName'];
+        let currentParkState = currentPark['states'];
+        const elementExists = parkNames.includes(currentParkName);
+        if (!elementExists) {
+
+            parkStates.push(currentParkState);
+            parkNames.push(currentParkName);
+            
+            }
+    }
+    for (var i = 0; i < parkStates.length; i++) {
+        var state = parkStates[i];
         if (stateCount[state]) {
             stateCount[state] += 1;
         } else {
@@ -72,6 +87,4 @@ d3.json('merged_df.json').then(function(data){
     Plotly.newPlot('bar', data, layout);
 
 }) 
-.catch(function(error) {
-    console.log(error);
-});
+
