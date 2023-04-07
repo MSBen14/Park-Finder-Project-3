@@ -16,26 +16,26 @@ APIs: Parks, Campgrounds, Alerts
 
 ## Pipeline / Software
 
-Get Data: APIs - Parks, Alerts, Campgrounds
-ETL: Data - Manipulate, Clean, Merge, Store in SQLite Database
-Flask App: Routes - Index, Data page
-HTML - CSS: Bootstrap Class Jumbotron JS: Leaflet Plotly, papa.parse libraries
+- Get Data: APIs - Parks, Alerts, Campgrounds
+- ETL: Data - Manipulate, Clean, Merge, Store in SQLite Database
+- Flask App: Routes - Index, Data page
+- HTML - CSS: Bootstrap Class Jumbotron JS: Leaflet Plotly, papa.parse libraries
 
 ## Challenges
 
-Getting familiar with dataset
-Mostly textual data, not much numerical data
-Determining best way to visualize data
-Events dataset returned segmented results
-Optimizing map functionality:
-- JS papa.parse difficult to utilize 
-- Converting CSV into GeoJson object
-- Anchoring Legend on the map
+- Getting familiar with dataset
+- Mostly textual data, not much numerical data
+- Determining best way to visualize data
+- Events dataset returned segmented results
+- Optimizing map functionality:
+  - JS papa.parse difficult to utilize 
+  - Converting CSV into GeoJson object
+  - Anchoring Legend on the map
 
 ## Next Steps
 
-Enhance Data - add events, operating hours, entrance fees, weather forecasts, pictures, news releases
-Optimize Functionality - Auto-zoom to location after selecting park in dropdown menu, maps marker group for NPS passport stamp locations.
+- Enhance Data - add events, operating hours, entrance fees, weather forecasts, pictures, news releases
+- Optimize Functionality - Auto-zoom to location after selecting park in dropdown menu, maps marker group for NPS passport stamp locations.
 
 
 
