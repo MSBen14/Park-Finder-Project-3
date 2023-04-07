@@ -11,8 +11,8 @@ Our ParkFinder application will provide a unique and engaging way for visitors t
 
 ## Data
 
-National Park Service: https://www.nps.gov/subjects/developer/api-documentation.htm#/
-APIs: Parks, Campgrounds, Alerts
+- National Park Service: https://www.nps.gov/subjects/developer/api-documentation.htm#/
+- APIs: Parks, Campgrounds, Alerts
 
 ## Pipeline / Software
 
@@ -34,8 +34,8 @@ APIs: Parks, Campgrounds, Alerts
 
 ## Next Steps
 
-- Enhance Data - add events, operating hours, entrance fees, weather forecasts, pictures, news releases
-- Optimize Functionality - Auto-zoom to location after selecting park in dropdown menu, maps marker group for NPS passport stamp locations.
+- Enhance Data: add events, operating hours, entrance fees, weather forecasts, pictures, news releases
+- Optimize Functionality: auto-zoom to location after selecting park in dropdown menu, maps marker group for NPS passport stamp locations.
 
 
 
