@@ -17,9 +17,11 @@ Our ParkFinder application will provide a unique and engaging way for visitors t
 ## Pipeline / Software
 
 - Get Data: APIs - Parks, Alerts, Campgrounds
-- ETL: Data - Manipulate, Clean, Merge, Store in SQLite Database
+- ETL: Data - Manipulate, Clean, Merge, write in SQLite Database
 - Flask App: Routes - Index, Data page
-- HTML - CSS: Bootstrap Class Jumbotron JS: Leaflet Plotly, papa.parse libraries
+- HTML:
+  -  CSS: Bootstrap Class Jumbotron 
+  -  JS: Leaflet Plotly, papa.parse libraries
 
 ## Challenges
 
