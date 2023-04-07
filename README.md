@@ -1,8 +1,8 @@
 # Explore America’s Natural Wonders with ParkFinder! 
 
-Our ParkFinder application will provide a unique and engaging way for visitors to explore the National parks and their campgrounds. By creating interactive maps and data visualizations, users can gain insights into visitor information for each national park. This project will serve as a valuable resource for anyone interested in exploring the natural and cultural wonders of the United States, all in one convenient location!
-
 ## Objective
+
+Our ParkFinder application will provide a unique and engaging way for visitors to explore the National parks and their campgrounds. By creating interactive maps and data visualizations, users can gain insights into visitor information for each national park. This project will serve as a valuable resource for anyone interested in exploring the natural and cultural wonders of the United States, all in one convenient location!
 
 Topic: America's National Parks and Campgrounds
 Motivation: To build an interactive map application that serves as a starting place for visiting America's national parks and Campgrounds
@@ -21,5 +21,22 @@ ETL: Data - Manipulate, Clean, Merge, Store in SQLite Database
 Flask App: Routes - Index, Data page
 HTML - CSS: Bootstrap Class Jumbotron JS: Leaflet Plotly, papa.parse libraries
 
-## ParkFinder
-![give a name](C:\Users\pjgil\OneDrive\Desktop\PF 1.png)
+## Challenges
+
+Getting familiar with dataset
+Mostly textual data, not much numerical data
+Determining best way to visualize data
+Events dataset returned segmented results
+Optimizing map functionality:
+- JS papa.parse difficult to utilize 
+- Converting CSV into GeoJson object
+- Anchoring Legend on the map
+
+## Next Steps
+
+Enhance Data - add events, operating hours, entrance fees, weather forecasts, pictures, news releases
+Optimize Functionality - Auto-zoom to location after selecting park in dropdown menu, maps marker group for NPS passport stamp locations.
+
+
+
+
