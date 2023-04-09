@@ -61,7 +61,7 @@ Papa.parse("statics/data/merged_df.csv", {
       geojson.features.push(feature);
     }
     
-    // Do something with the GeoJSON object, such as save it to a file
+    // Console log the geoJSON object
     console.log(geojson);
 
     // Create layer groups for camping and parks markers
